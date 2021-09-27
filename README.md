@@ -37,3 +37,10 @@ Me envia uma mensagem no privado pelo telegram informado
 - Como foi fup, em que linguagem fez e com qual professor
 - Qual sua afinidade com programação.
 - Se já fez poo e reprovou ou é a primeira vez. Se reprovou, porquê?
+
+## Atividade Github
+- Crie seu repositório da disciplina
+- Adicione na sua planilha de notas
+- Acione algum código de teste compilado com a versão mais nova do c++20.
+- Faça o push para o respositório
+- Marque na planilha como concluído.
