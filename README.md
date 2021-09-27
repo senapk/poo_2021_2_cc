@@ -2,7 +2,7 @@
 # 2021_2_poo_cc
 
 ## Links: 
-- Planilha de notas [LINK](https://docs.google.com/spreadsheets/d/1clTeS5h3-DRgZzTspzGUIeKuD1sEiTxfRP4xjI58sCI/edit?usp=sharing)
+- Planilha de notas e presença [LINK](https://docs.google.com/spreadsheets/d/1clTeS5h3-DRgZzTspzGUIeKuD1sEiTxfRP4xjI58sCI/edit?usp=sharing)
 
 
 ## Aula 01
@@ -29,4 +29,11 @@ int main() {
 }
 ```
 
-
+## Atividade Perfil
+Me envia uma mensagem no privado pelo telegram informado
+- Turma de CC de POO
+- Nome:
+- Foto:
+- Como foi fup, em que linguagem fez e com qual professor
+- Qual sua afinidade com programação.
+- Se já fez poo e reprovou ou é a primeira vez. Se reprovou, porquê?
