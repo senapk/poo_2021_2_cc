@@ -13,8 +13,19 @@ public:
 class CPF {
     std::string number;
 
+    static std::vector<int> getDigits(long long number) {
+        std::vector<int> digits;
+        while (number > 0) {
+            digits.push_back(number % 10);
+            number /= 10;
+        }
+        return digits;
+    }
+
 public:
-    static bool validate(std::vector<int> number) {
+    static bool validate(long long cpf) {
+        auto number = getDigits(cpf);
+
         int sum = 0;
         int rest;
         int first_digit;
@@ -59,19 +70,18 @@ public:
 
     }
 
-
     CPF(std::string number) {
         this->number = number;
     }
+
+    //muda o valor do cpf
+    //aceita numeros e tokens como . e -
     void setNumber(std::string number) {
         this->number = number;
     }
-    bool isValid() {
-        std::vector<int> number;
-        int i;
-        for (i = 0; i < this->number.size(); i++) {
-            number.push_back(this->number[i] - '0');
-        }
+
+    //retorna se o valor do cpf eh um número válido
+    bool isValid() const {
         return CPF::validate(number);
     }
 };
@@ -124,7 +134,10 @@ int main() {
     cpf.isValid();
 
     std::string number = "1233121123132";
+    number.size()
     std::vector<int> number_vector;
     for (int v : number)
         number_vector.push_back(v - '0');
+
+    
 }
