@@ -1,0 +1,14 @@
+init 5
+show
+add jose 21 2
+add ana 20 3
+add maria 19 3
+add carlos 5
+add jose 0
+show
+rm ana
+show
+rm patricia
+rm jose
+show
+end
