@@ -1,12 +1,11 @@
+#pragma once
+
 #include <iostream>
 #include <sstream>
 #include <vector>
 #include <map> 
 #include <memory>
 
-#include "fone.hpp"
-#include "contato.hpp"
-#include "agenda.hpp"
 using namespace std;
 
 
@@ -19,18 +18,6 @@ vector<string> split(string s, char delim) {
     while (getline(ss, token, delim))
         result.push_back(token);
     return result;
-}
-
-vector<Fone> parseFones(stringstream& ss) {
-    vector<Fone> foneList;
-    string label, numero, token;
-    while (ss >> token) {
-        stringstream ss2(token);
-        getline(ss2, label, ':');
-        getline(ss2, numero);
-        foneList.push_back(Fone(label, numero));
-    }
-    return foneList;
 }
 
 template <typename T>

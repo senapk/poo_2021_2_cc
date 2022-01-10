@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <sstream>
 #include <vector>
@@ -6,14 +8,15 @@
 
 #include "fone.hpp"
 #include "contato.hpp"
+#include "auxiliar.hpp"
 
 using namespace std;
 
 //adiciona, recupera, remove contatos, busca
 class Agenda {
-    map<string, shared_ptr<Contato>> contatos;
     bool alterar_favoritos {true};
 public:
+    map<string, shared_ptr<Contato>> contatos;
     void adicionar(string nome, vector<Fone> fones) {
         auto it = contatos.find(nome); //log n
         if (it != contatos.end()) {
@@ -72,12 +75,8 @@ public:
 
     vector<shared_ptr<Contato>> buscar(string pattern) {
         vector<shared_ptr<Contato>> result;
-        for (auto pair: contatos) {
-            string nome = pair.first;
-            auto contato = pair.second;
-            stringstream ss;
-            ss << *contato;
-            auto texto = ss.str();
+        for (auto &[nome, contato]: contatos) {
+            auto texto = value_to_string(*contato);
             if (texto.find(pattern) != string::npos)
                 result.push_back(contato);
         }
@@ -88,7 +87,7 @@ public:
 };
 
 ostream& operator<<(ostream& os, Agenda& ag) {
-    for (auto& c : ag.contatos)
-        os << *c.second << endl;
+    for (auto [name, contact] : ag.contatos)
+        os << *contact << endl;
     return os;
 }

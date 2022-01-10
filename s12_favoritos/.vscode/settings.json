@@ -1,5 +1,20 @@
 {
     "files.associations": {
-        "vector": "cpp"
-    }
+        "vector": "cpp",
+        "iosfwd": "cpp"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "__pycache__": true,
+        ".idea": true,
+        ".vscode": true,
+        "venv": true,
+        "*.out": true
+    },
+    "explorerExclude.backup": null
 }

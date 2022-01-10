@@ -10,6 +10,15 @@
 #include "auxiliar.hpp"
 using namespace std;
 
+vector<Fone> parseFones(stringstream& ss) {
+    vector<Fone> foneList;
+    string token;
+    while (ss >> token) {
+        vector<string> parts = split(token, ':');
+        foneList.push_back(Fone(parts[0], parts[1]));
+    }
+    return foneList;
+}
 
 int main(){
     Agenda agenda;
@@ -32,7 +41,7 @@ int main(){
                 cout << *agenda.pegar(read<string>(ss)) << endl;
             } else if (cmd == "fav") {//add nome
                 agenda.pegar(read<string>(ss))->setFavorito(true);
-            } else if (cmd == "dfav") {//add nome
+            } else if (cmd == "unfav") {//add nome
                 agenda.pegar(read<string>(ss))->setFavorito(false);
             } else if (cmd == "show") {//add nome
                 cout << agenda;
