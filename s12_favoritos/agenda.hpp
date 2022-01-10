@@ -12,7 +12,7 @@ using namespace std;
 //adiciona, recupera, remove contatos, busca
 class Agenda {
     map<string, shared_ptr<Contato>> contatos;
-    bool favoritos_alterados {true};
+    bool alterar_favoritos {true};
 public:
     void adicionar(string nome, vector<Fone> fones) {
         auto it = contatos.find(nome); //log n
@@ -31,7 +31,7 @@ public:
         auto it = contatos.find(nome);
         if (it != contatos.end())
             contatos.erase(it);
-        favoritos_alterados = true;
+        alterar_favoritos = true;
     }
 
     shared_ptr<Contato> pegar(string nome) {
@@ -43,13 +43,13 @@ public:
 
     vector<shared_ptr<Contato>> getFavoritos() {
         static vector<shared_ptr<Contato>> favoritos;
-        if (favoritos_alterados) {
+        if (alterar_favoritos) {
             favoritos.clear();
-            for (auto& p : contatos) {
-                if (p.second->getFavorito())
-                    favoritos.push_back(p.second);
+            for (auto& [name, contato] : contatos) {
+                if (contato->getFavorito())
+                    favoritos.push_back(contato);
             }
-            favoritos_alterados = false;
+            alterar_favoritos = false;
         }
         return favoritos;
     }
@@ -58,7 +58,7 @@ public:
         auto contato = this->pegar(nome);
         if (!contato->getFavorito()) {
             contato->setFavorito(true);
-            favoritos_alterados = true;
+            alterar_favoritos = true;
         }
     }
 
@@ -66,7 +66,7 @@ public:
         auto contato = this->pegar(nome);
         if (contato->getFavorito()) {
             contato->setFavorito(false);
-            favoritos_alterados = true;
+            alterar_favoritos = true;
         }
     }
 

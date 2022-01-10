@@ -37,9 +37,9 @@ int main(){
             } else if (cmd == "show") {//add nome
                 cout << agenda;
             } else if (cmd == "favs") {//add nome
-                cout << to_string_ptr(agenda.getFavoritos(), '\n');
+                cout << vec_ptr_to_string(agenda.getFavoritos(), '\n');
             } else if (cmd == "search") {//add nome
-                cout << to_string_ptr(agenda.buscar(read<string>(ss)), '\n');
+                cout << vec_ptr_to_string(agenda.buscar(read<string>(ss)), '\n');
             } else {
                 cout << "fail: comando invalido" << endl;
             }
